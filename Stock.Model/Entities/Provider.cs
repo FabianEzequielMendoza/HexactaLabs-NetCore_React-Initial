@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Stock.Model.Base;
 
 namespace Stock.Model.Entities
 {
+    [Table("provider")]
     public class Provider : IEntity
     {
         public string Id { get; set; }
