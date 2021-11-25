@@ -113,6 +113,13 @@ namespace Stock.Api.Controllers
                     model.Condition.Equals(ActionDto.AND));
             }
 
+            if (!string.IsNullOrWhiteSpace(model.Email))
+            {
+                filter = filter.AndOrCustom(
+                    x => x.Email.ToUpper().Contains(model.Email.ToUpper()),
+                    model.Condition.Equals(ActionDto.AND));
+            }
+
             var provider = service.Search(filter);
             return Ok(provider);
         }
